@@ -1,5 +1,4 @@
 import React from 'react'
-import Add from '../img/addImage.png'
 
 const Login = () => {
   return (
@@ -10,7 +9,6 @@ const Login = () => {
             <form>
                 <input type="email" placeholder='email'/>
                 <input type="password" placeholder='******'/>
-
                 <button>Sign in</button>
             </form>
             <p>You do not have an account? Register</p>
