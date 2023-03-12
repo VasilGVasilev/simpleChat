@@ -201,6 +201,18 @@ body{
                     cursor: pointer;
                 }
             }
+
+            .messages{
+                background-color: #ddddf7;
+                padding: 10px;
+                height: calc(100% - 160px); // INCLUDE PADDING AND MARGINS INTO CALC -> .chatInfo 70px + .input 70px + .messages padding 20px
+            }
+
+            .input{
+                height: 50px;
+                background-color: white; 
+                padding: 10px;
+            }
         }
     }
 }
