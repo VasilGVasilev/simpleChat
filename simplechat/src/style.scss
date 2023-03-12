@@ -3,6 +3,25 @@ body{
     overflow: hidden;
 }
 
+@mixin mobile{
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+
 .formContainer{
     background-color: #a7bcff;
     font-family: "Arial";
@@ -89,10 +108,15 @@ body{
         display: flex;
         // overflow: hidden prevents the sidebar and chat to have a sharp corner overflowing the curved corner of container
         overflow: hidden;
-
+        @include  tablet{
+            width: 90%;
+        }
         .sidebar{
             flex: 1;
             background-color: #3e3c61;
+            @include tablet{
+                position: relative;
+            }
 
             .navbar{
                 display: flex;
@@ -105,6 +129,9 @@ body{
 
                 .logo{
                     font-weight:bold;
+                    @include  tablet{
+                        display: none;
+                    }
                 }
 
                 .user{
@@ -124,7 +151,14 @@ body{
                         color:#ddddf7;
                         font-size: 10px;
                         border: none;
-                        cursor: pointer
+                        cursor: pointer;
+                        @include tablet{
+                            position: absolute;
+                            bottom: 15px;
+                            left: 15px;
+                            height: 24px;
+                            width: 54px;
+                        }
                     }
                 }
             }

@@ -41,3 +41,38 @@ Written in Sass
           }
         }
       }
+
+
+relative vs absolute position
+
+    default position is static
+
+    if you want to move child set it to relative and it will move relative to its former position regarding its parent
+
+    if you set child to absolute, it will be auto relative to html, not parent, to resolve that set parent to relative, thus, child is absolute within the relative parent scope
+
+mixin and @include
+    Mixins allow you to define styles that can be re-used throughout your stylesheet. 
+    Mixins are defined using the @mixin at-rule, which is written @mixin <name> { ... }
+    Mixins are included into the current context using the @include at-rule, which is written @include <name>
+
+@content SASS directive:
+    @mixin mobile{
+        @media screen and (max-width: 480px) {
+            @content;
+        }
+    }
+
+    .logo{
+        font-weight:bold;
+        @include  tablet{
+            display: none;
+        }
+    }
+
+    @content inside @mixin is like a placeholder telling SASS preprocessor that some properties are to be overwritten when screen width is below 480px. These properties are declared in the @include part. For example, putting @include in .logo results in overriding the display property of .logo, making it invisible when width is below 480.
+
+    Summary: @content in set in @mixin and filled with properties on each @include, thus, modifying specific classes rather than saying @media and redefining whole CSS for one major shift (ex. hidding logo for small resolutions)
+    
+delcare variables
+    $darkColor: #2f2d52; 
