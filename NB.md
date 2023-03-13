@@ -76,3 +76,9 @@ mixin and @include
     
 delcare variables
     $darkColor: #2f2d52; 
+
+
+Understand useEffect clean up
+see articles
+https://reacttraining.com/blog/useEffect-is-not-the-new-componentDidMount
+https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/
