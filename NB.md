@@ -86,5 +86,17 @@ Thus, a crucial difference how we should perceive hooks not only compared to lif
 Hooks force us to think more from the user's perpective, useEffect runs only after 'paint' (initial render) has set
 
 https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/
+
+If you click on a button that fetches info via useEffect and click again on the same button before the info of the first call is rendered you will come across an error:
+Warning! Can't perform a React state update on an unmounted component.
+
+the reason for this unmounting is that you are utilizing useEffect a second time via second button click and subsequent fetch while the inital one is still there. Where is that -> in a closure (useEffect uses closures). That info is unresolved, unmanaged and can cause memory leaks. Thus, comes in handy the cleanup functionality of useEffect.
+useEffect(()=>{
+  <!-- mounting -->
+  <!-- some fetch or subscription to be done -->
+  return 
+  <!-- unmounting -->
+  <!-- if explicit function is needed to unsubscribe -->
+})
 https://blog.logrocket.com/useeffect-hook-complete-guide/#utilizing-cleanup-functions
 https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928
