@@ -81,4 +81,10 @@ delcare variables
 Understand useEffect clean up
 see articles
 https://reacttraining.com/blog/useEffect-is-not-the-new-componentDidMount
+both run after component mount, but useEffect runs even later -> after first render
+Thus, a crucial difference how we should perceive hooks not only compared to lifecycle methods but in general:
+Hooks force us to think more from the user's perpective, useEffect runs only after 'paint' (initial render) has set
+
 https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/
+https://blog.logrocket.com/useeffect-hook-complete-guide/#utilizing-cleanup-functions
+https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928
