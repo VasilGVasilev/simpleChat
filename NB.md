@@ -78,9 +78,29 @@ delcare variables
     $darkColor: #2f2d52; 
 
 
+
+How React renders:
+First, it renders the return of the component (after commit phase)
+Second, if there is useEffect, component is mounted (after commit phase)
+Third, it awaits user click -> click is received
+Fourth, it sets in motion setState if useState is used - React schedules an update to the component state.
+Fifth, it renders new content reflecting on new state
+Sixth, it sets new value of state, which is done during re-render -state updates are asynchronous, you cannot rely on the new state value being immediately available after calling setState
+Seventh, it triggers cleanup handler (unmounting)
+Eigth, it calls useEffect handler (callback) 
+
+Note the specific calling with useEffect:
+
+First component
+  useEffect is mounted via its handler/callback
+Second component
+  useFffect is unmounted via the clean-up, but it is the first instance of useEffect, namely, before useEffect is mounted on the current second component, useEffect cleans up the closure for the previous component.
+
+
 Understand useEffect clean up
 see articles
 https://reacttraining.com/blog/useEffect-is-not-the-new-componentDidMount
+
 both run after component mount, but useEffect runs even later -> after first render
 Thus, a crucial difference how we should perceive hooks not only compared to lifecycle methods but in general:
 Hooks force us to think more from the user's perpective, useEffect runs only after 'paint' (initial render) has set
@@ -98,5 +118,17 @@ useEffect(()=>{
   <!-- unmounting -->
   <!-- if explicit function is needed to unsubscribe -->
 })
+
 https://blog.logrocket.com/useeffect-hook-complete-guide/#utilizing-cleanup-functions
+
+“The question is not ‘when does this effect run,’ the question is ‘with which state does this effect synchronize?’ ”
+
+useEffect
+
 https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928
+
+React converting the component tree and flushing the result to the rendering environment:
+    * The “render” phase: create React elements ---React.createElement---
+    * The “reconciliation” phase: compare previous elements with the new ones 
+    * The “commit” phase: update the DOM
+
