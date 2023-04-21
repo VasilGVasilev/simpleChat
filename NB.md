@@ -132,3 +132,7 @@ React converting the component tree and flushing the result to the rendering env
     * The “reconciliation” phase: compare previous elements with the new ones 
     * The “commit” phase: update the DOM
 
+
+Important when using Firebase:
+ - initialize firebase functionality on app
+ - initialize firebase functionality on project
