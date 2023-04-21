@@ -136,3 +136,17 @@ React converting the component tree and flushing the result to the rendering env
 Important when using Firebase:
  - initialize firebase functionality on app
  - initialize firebase functionality on project
+
+see useEffect, especially, cleanup, because we need it with onAuthStateChanged
+ https://www.youtube.com/watch?v=QQYeipc_cik
+
+On useEffect hook and cleanup functions:
+  In React, useEffect hook is used to manage side effects in functional components. It allows you to perform some operation after a component renders or updates. When you use useEffect hook to perform a real-time operation such as fetching data from an API or subscribing to a real-time data stream, it is important to also include a cleanup function to avoid memory leaks and other unwanted behavior.
+
+  A cleanup function is a function that is called when the component unmounts or when the dependency array of useEffect changes. It is used to clean up any resources or subscriptions that were created by the useEffect hook, so that they do not remain active after the component is no longer being rendered.
+
+  When dealing with a real-time operation in useEffect, it is important to use a cleanup function to prevent the real-time operation from continuing after the component has been unmounted. For example, if you are subscribing to a real-time data stream, you should unsubscribe from the stream in the cleanup function to avoid memory leaks or other unwanted behavior.
+
+Why do we unsubscribe from onAuthStateChanged? memory leak, but see more detailed reason!
+
+1:15:00
