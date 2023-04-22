@@ -64,6 +64,28 @@ What is the differene between primitive and non-primitive dependencies?
 
     useMemo triggers update of state when there is actually an update of the properties of the object, thus, triggering the execution of useEffect
 
+    OR you can directly set the primitives (object properties) in the dependency array:
+
+    const [name, setName] = useState("");
+    const [state, setState] = useState({
+        name: "",
+        selected: false,
+        age: 20,
+        city: "",
+    });
+
+    useEffect(()=>{
+        console.log("The state has changed, useEffect runs!");
+    },[selected.name, state.selected]);
+
+    const handleAdd = () => {
+        setState((prev) => ({ ...prev, name }));
+    };
+
+    const handleSelect = () =? {
+        setState((prev) => ({ ...prev, selected: true}));
+    }; 
+
 When should we use a cleanup function?
 
 
