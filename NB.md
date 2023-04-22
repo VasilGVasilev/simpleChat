@@ -137,8 +137,7 @@ Important when using Firebase:
  - initialize firebase functionality on app
  - initialize firebase functionality on project
 
-see useEffect, especially, cleanup, because we need it with onAuthStateChanged
- https://www.youtube.com/watch?v=QQYeipc_cik
+
 
 On useEffect hook and cleanup functions:
   In React, useEffect hook is used to manage side effects in functional components. It allows you to perform some operation after a component renders or updates. When you use useEffect hook to perform a real-time operation such as fetching data from an API or subscribing to a real-time data stream, it is important to also include a cleanup function to avoid memory leaks and other unwanted behavior.
