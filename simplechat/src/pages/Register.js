@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import Add from '../img/addImage.png'
 import * as authService from '../services/authService'
-import { auth, storage } from '../firebase'
+import { db, storage } from '../firebase'
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { updateProfile } from 'firebase/auth';
+import { doc, setDoc } from "firebase/firestore";
 
 
 
+// we use Authentication, Storage, Firestore Database
+// we save profile in Authentication BaaS + image in Storage BaaS
+// we save profile in users collection via Firestore Database
 const Register = () => {
+
+
 
   const [values, setValues] = useState({
     displayName: '',
@@ -19,12 +25,12 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let file = e.target[3].files[0];
+    let file = e.target[3].files[0]; //controlled form fails with file upload
 
     try {
       // upload info on authentication BaaS
-      let res = await authService.register(values.email, values.password)
-
+      let res = await authService.register(values.email, values.password) //basically same as auth.currentUser
+      console.log(res.user);
       const storageRef = ref(storage, values.displayName);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -38,10 +44,19 @@ const Register = () => {
             await updateProfile(res.user, {
               displayName: values.displayName,
               photoURL: downloadURL
-            })
+            });
+            // Add a new document in collection "users"
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName: values.displayName,
+              email: values.email,
+              photoURL: downloadURL,
+            });
           });
         }
       );
+
+
     } catch (error) {
       setErr(true)
     }
