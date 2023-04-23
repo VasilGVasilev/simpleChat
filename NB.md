@@ -149,3 +149,19 @@ On useEffect hook and cleanup functions:
 Why do we unsubscribe from onAuthStateChanged? memory leak, but see more detailed reason!
 
 1:15:00
+
+Block scoping
+  when I refactored createUserWithEmailAndPassword to be in a separate services module and I had to use higher order function register = () => {createUserWithEmailAndPassword} that returns createUserWithEmailAndPassword, I had to figure out how arguments are to be passed in.
+  Since authServices imports getAuth() as auth, which is later used in createUserWithEmailAndPassword(auth, email, password), I had to figure a way to pass in auth. It seems that variables are attached to a block scope and are accessible down the chain of nested blocks, however deep they go.
+  Another example in Back-End Softuni is:
+    exports.modelValidator = (Model) => async (req, res, next) => {
+        try {
+            await Model.validate(req.body);
+
+            next();
+        } catch (error) {
+            console.log(error);
+            res.status(400).send(Object.values(error)[0]);
+        }
+    };
+  see how Model is passed in as an argument in modelValidator(), then not passed in in async(), but still used in the resulting block { try { await Model}}.

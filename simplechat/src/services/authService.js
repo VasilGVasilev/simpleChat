@@ -1,12 +1,12 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from './firebase'
-
+import { auth } from '../firebase'
 
 // to register user on server
-createUserWithEmailAndPassword(auth, email, password)
+export const register = (email, password) => createUserWithEmailAndPassword(auth, email, password) 
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    console.log(user);
     // ...
   })
   .catch((error) => {

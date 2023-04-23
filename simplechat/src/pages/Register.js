@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Add from '../img/addImage.png'
+import * as authService from '../services/authService'
+
 
 const Register = () => {
 
@@ -10,7 +12,8 @@ const Register = () => {
   })
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    authService.register(values.email, values.password)
   }
 
   
