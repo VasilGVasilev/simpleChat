@@ -11,9 +11,16 @@ const Register = () => {
     password: '',
   })
 
-  const handleSubmit = (e) => {
+  const [err, setErr] = useState(false)
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    authService.register(values.email, values.password)
+    try {
+      await authService.register(values.email, values.password)
+    } catch (error) {
+      setErr(true)
+    }
+
   }
 
   
@@ -59,6 +66,7 @@ const Register = () => {
 
                 <input style={{display:'none'}} type="file"id='file' />
                 <button>Sign up</button>
+                {err && <span>Something went wrong</span>}
             </form>
             <p>You have an account? Login</p>
         </div>
