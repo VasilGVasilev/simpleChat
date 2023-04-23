@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import Add from '../img/addImage.png'
 import * as authService from '../services/authService'
+import { auth, storage } from '../firebase'
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { updateProfile } from 'firebase/auth';
+
 
 
 const Register = () => {
@@ -15,8 +19,29 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let file = e.target[3].files[0];
+
     try {
-      await authService.register(values.email, values.password)
+      // upload info on authentication BaaS
+      let res = await authService.register(values.email, values.password)
+
+      const storageRef = ref(storage, values.displayName);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      // upload img in storage BaaS and synchronise it with the profile in authentication BaaS
+      uploadTask.on(
+        (error) => {
+          setErr(true)
+        }, 
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then( async (downloadURL) => {
+            await updateProfile(res.user, {
+              displayName: values.displayName,
+              photoURL: downloadURL
+            })
+          });
+        }
+      );
     } catch (error) {
       setErr(true)
     }
@@ -64,7 +89,11 @@ const Register = () => {
                     <span>Add user avatar</span>
                 </label>
 
-                <input style={{display:'none'}} type="file"id='file' />
+                <input 
+                  style={{display:'none'}} 
+                  type="file" 
+                  id='file'
+                />
                 <button>Sign up</button>
                 {err && <span>Something went wrong</span>}
             </form>
