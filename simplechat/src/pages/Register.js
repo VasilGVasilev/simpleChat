@@ -56,6 +56,7 @@ const Register = () => {
               photoURL: downloadURL,
             }); //enable write to true in collection rules 
 
+            // Add user in collection 'userChats' in BaaS Firestore Database
             await setDoc(doc(db, "userChats", res.user.uid), {}) //empty object due to no convos intially
 
             navigate('/')
