@@ -5,7 +5,7 @@ import { db, storage } from '../firebase'
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { updateProfile } from 'firebase/auth';
 import { doc, setDoc } from "firebase/firestore";
-
+import { useNavigate } from 'react-router-dom'
 
 
 // we use Authentication, Storage, Firestore Database
@@ -13,7 +13,7 @@ import { doc, setDoc } from "firebase/firestore";
 // we save profile in users collection via Firestore Database
 const Register = () => {
 
-
+  const navigate = useNavigate();
 
   const [values, setValues] = useState({
     displayName: '',
@@ -41,17 +41,24 @@ const Register = () => {
         }, 
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then( async (downloadURL) => {
+
+            // Add user in BaaS "Authentication"
             await updateProfile(res.user, {
               displayName: values.displayName,
               photoURL: downloadURL
             });
-            // Add a new document in collection "users"
+
+            // Add user in collection "users" in BaaS Firestore Database
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
               displayName: values.displayName,
               email: values.email,
               photoURL: downloadURL,
-            });
+            }); //enable write to true in collection rules 
+
+            await setDoc(doc(db, "userChats", res.user.uid), {}) //empty object due to no convos intially
+
+            navigate('/')
           });
         }
       );
