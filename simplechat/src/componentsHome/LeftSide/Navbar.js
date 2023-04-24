@@ -1,14 +1,15 @@
-import React from 'react'
 import * as authService from '../../services/authService'
+import { useAuthContext } from '../../contexts/authContext'
 
 
 const Navbar = () => {
+  const { currentUser } = useAuthContext();
   return (
     <div className='navbar'>
       <span className='logo'>Chat</span>
       <div className="user">
-        <img src="https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg" alt="" />
-        <span>Billy</span>
+        <img src={currentUser.photoURL} alt="" />
+        <span>{currentUser.displayName}</span>
         <button onClick={authService.logout}>logout</button>
       </div>
     </div>
