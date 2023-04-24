@@ -168,7 +168,7 @@ Block scoping
 
 onClick={handleClick}
 
-  onClick always requires a function wrapped in an arrow function or a reference to a function expression, thus, handleClick has to be a predeclared likewise:
+  onClick always requires a function wrapped in an arrow function or a reference to a function expression (which is a function assigned to a variable), thus, handleClick has to be a predeclared likewise:
 
     const handleSubmit = (e) => {}
     return(
