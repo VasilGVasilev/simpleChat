@@ -1,5 +1,5 @@
-import * as authService from '../../services/authService'
-import { useAuthContext } from '../../contexts/authContext'
+import * as authService from '../../../services/authService'
+import { useAuthContext } from '../../../contexts/authContext'
 
 
 const Navbar = () => {
