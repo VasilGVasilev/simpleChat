@@ -1,4 +1,6 @@
 import React from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+
 
 const Login = () => {
   return (
@@ -11,7 +13,7 @@ const Login = () => {
                 <input type="password" placeholder='******'/>
                 <button>Sign in</button>
             </form>
-            <p>You do not have an account? Register</p>
+            <p>You do not have an account? <Link to='/register' style={{ textDecoration: 'none', fontSize: 14 }}>Register</Link></p>
         </div>
     </div>
   )
