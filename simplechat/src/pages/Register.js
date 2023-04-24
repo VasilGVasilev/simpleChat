@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Add from '../img/addImage.png'
 import * as authService from '../services/authService'
 import { db, storage } from '../firebase'
@@ -29,7 +29,7 @@ const Register = () => {
 
     try {
       // upload info on authentication BaaS
-      let res = await authService.register(values.email, values.password) //basically same as auth.currentUser
+      let res = await authService.register(values.email, values.password) // res is basically same as auth.currentUser
       console.log(res.user);
       const storageRef = ref(storage, values.displayName);
       const uploadTask = uploadBytesResumable(storageRef, file);
