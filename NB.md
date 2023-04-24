@@ -165,3 +165,18 @@ Block scoping
         }
     };
   see how Model is passed in as an argument in modelValidator(), then not passed in in async(), but still used in the resulting block { try { await Model}}.
+
+onClick={handleClick}
+
+  onClick always requires a function wrapped in an arrow function or a reference to a function expression, thus, handleClick has to be a predeclared likewise:
+
+    const handleSubmit = (e) => {}
+    return(
+      onClick={handleClick}
+    )
+
+    OR
+
+    return(
+      onClick={()=>handleClick()}
+    )
