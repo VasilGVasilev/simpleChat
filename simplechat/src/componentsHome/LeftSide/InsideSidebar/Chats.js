@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from '../../../firebase';
 import { useAuthContext } from '../../../contexts/authContext';
+import { useChatContext } from '../../../contexts/chatContext';
+
 
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
   const { currentUser } = useAuthContext();
+  const { changeUser } = useChatContext();
+
 
   // realtime listening for changes in collection -> You can listen to a document with the onSnapshot() method.
     // An initial call using the callback you provide creates a document snapshot immediately with the current contents of the single document. 
@@ -25,11 +29,15 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid])
 
+  const handleSelect = (user) => {
+    changeUser(user, currentUser)
+  }
+
   // console.log(chats); it logs out objects, while we need an array for the leftsidebar, thus, Object.entries()
   return (
     <div className='chats'>
       {Object.entries(chats)?.map(chat=>(
-        <div className='userChat' key={chat[0]}>
+        <div className='userChat' key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
                 <span>{chat[1].userInfo.displayName}</span>
