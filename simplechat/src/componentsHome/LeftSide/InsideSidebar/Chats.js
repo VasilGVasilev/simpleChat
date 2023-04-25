@@ -1,22 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from '../../../firebase';
+import { useAuthContext } from '../../../contexts/authContext';
+
 
 const Chats = () => {
+  const [chats, setChats] = useState([]);
+  const { currentUser } = useAuthContext();
+
+  // realtime listening for changes in collection -> You can listen to a document with the onSnapshot() method.
+    // An initial call using the callback you provide creates a document snapshot immediately with the current contents of the single document. 
+    // Then, each time the contents change, another call updates the document snapshot
+  useEffect(()=>{
+    const getChats = () => {
+      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+          setChats(doc.data())
+      });
+  
+      return () => {
+        unsub();
+      }
+    }
+
+    currentUser.uid && getChats();
+  }, [currentUser.uid])
+
+  // console.log(chats); it logs out objects, while we need an array for the leftsidebar, thus, Object.entries()
   return (
     <div className='chats'>
-      <div className='userChat'>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg" alt="" />
-          <div className="userChatInfo">
-              <span>Elon</span>
-              <p>Hello </p>
-          </div>
-      </div>
-      <div className='userChat'>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg" alt="" />
-          <div className="userChatInfo">
-              <span>Elon</span>
-              <p>Hello </p>
-          </div>
-      </div>
+      {Object.entries(chats)?.map(chat=>(
+        <div className='userChat' key={chat[0]}>
+            <img src={chat[1].userInfo.photoURL} alt="" />
+            <div className="userChatInfo">
+                <span>{chat[1].userInfo.displayName}</span>
+                <p>{chat[1].userInfo.lastMessage?.text}</p>
+            </div>
+        </div>
+      ))}
+
     </div>
   )
 }
