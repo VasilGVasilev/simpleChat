@@ -9,7 +9,7 @@ import { useChatContext } from '../../../contexts/chatContext';
 const Chats = () => {
   const [chats, setChats] = useState([]);
   const { currentUser } = useAuthContext();
-  const { changeUser } = useChatContext();
+  const { selectUser } = useChatContext();
 
 
   // realtime listening for changes in collection -> You can listen to a document with the onSnapshot() method.
@@ -30,7 +30,7 @@ const Chats = () => {
   }, [currentUser.uid])
 
   const handleSelect = (user) => {
-    changeUser(user, currentUser)
+    selectUser(user, currentUser)
   }
 
   // console.log(chats); it logs out objects, while we need an array for the leftsidebar, thus, Object.entries()

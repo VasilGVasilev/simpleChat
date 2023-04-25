@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 
 export const ChatContext  = createContext();
@@ -7,7 +7,7 @@ export const ChatContext  = createContext();
 
 const chatReducer = (state, action) => {
     switch(action.type){
-        case 'CHANGE_USER':
+        case 'SELECT_USER':
             return {
                 user: action.payload,
                 chatId: action.currentUser.uid > action.payload.uid 
@@ -29,9 +29,9 @@ export const ChatProvider = ({children}) => {
 
     const [chats, dispatch] = useReducer(chatReducer, INITIAL_STATE)
 
-    const changeUser = (userData, currentUser) => {
+    const selectUser = (userData, currentUser) => {
         dispatch({
-            type: 'CHANGE_USER',
+            type: 'SELECT_USER',
             payload: userData,
             currentUser
         })
@@ -39,7 +39,8 @@ export const ChatProvider = ({children}) => {
 
     return (
         <ChatContext.Provider value={{
-            changeUser
+            chats,
+            selectUser
         }}>
             {children}
         </ChatContext.Provider>

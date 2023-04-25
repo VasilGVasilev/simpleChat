@@ -6,12 +6,17 @@ import More from '../../img/more.png'
 import Messages from './Messages'
 import Input from './Input'
 
+import { useChatContext } from '../../contexts/chatContext';
+
 
 const Chat = () => {
+  const { chats } = useChatContext();
+  
+
   return (
     <div className='chat'>
       <div className="chatInfo">
-        <span>Billy</span>
+        <span>{chats.user?.displayName}</span>
         <div className="chatIcons">
           <img src={Cam} alt="" />
           <img src={Add} alt="" />

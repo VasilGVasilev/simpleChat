@@ -1,7 +1,6 @@
 import React from 'react'
 import Sidebar from '../componentsHome/LeftSide/Sidebar'
 import Chat from '../componentsHome/RightSide/Chat'
-import { useAuthContext } from '../contexts/authContext'
 
 const Home = () => {
 
