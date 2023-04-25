@@ -41,6 +41,7 @@ const Search = () => {
         try {
             const res = await getDoc(doc(db, "chats", combinedId));
 
+            // initiate db relations
             if(!res.exists()) { //firebase method
                 // create a chat in chats collection
                 await setDoc(doc(db, "chats", combinedId), {messages: []});
@@ -72,7 +73,9 @@ const Search = () => {
         } catch (error) {
             
         }
-        // create user chats
+        // pop user off sidebar after search
+        setUser(null);
+        setUsername('');
     }
 
     const handleKey = (e) => {
@@ -82,7 +85,13 @@ const Search = () => {
     return (
         <div className='search'>
             <div className='searchForm'>
-                <input type="text" placeholder='Search...' onKeyDown={handleKey} onChange={e => setUsername(e.target.value)}/>
+                <input 
+                    type="text" 
+                    placeholder='Search...'
+                    value={username} 
+                    onKeyDown={handleKey} 
+                    onChange={e => setUsername(e.target.value)}
+                />
             </div>
             {err && <span>User not found</span>}
             { user && 
