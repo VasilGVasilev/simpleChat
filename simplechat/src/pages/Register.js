@@ -30,7 +30,7 @@ const Register = () => {
     try {
       // upload info on authentication BaaS
       let res = await authService.register(values.email, values.password) // res is basically same as auth.currentUser
-      console.log(res.user);
+
       const storageRef = ref(storage, values.displayName);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -63,7 +63,6 @@ const Register = () => {
           });
         }
       );
-
 
     } catch (error) {
       setErr(true)
