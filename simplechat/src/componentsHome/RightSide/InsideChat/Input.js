@@ -77,6 +77,10 @@ const Input = () => {
 
     setText('');
     setImage(null);
+  }
+  // enter on input triggers send, too
+  const handleKey = (e) => {
+    e.code === 'Enter' && handleSend(); //specify that keydown is 'Enter' otherwise it will be any key down
   } 
 
   return (
@@ -86,6 +90,7 @@ const Input = () => {
         placeholder='Type something...'
         value={text}
         onChange={e=>setText(e.target.value)}
+        onKeyDown={handleKey} 
       />
       <div className="send">
         <label htmlFor="file">
