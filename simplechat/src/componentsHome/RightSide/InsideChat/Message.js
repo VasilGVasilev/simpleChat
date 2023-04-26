@@ -5,14 +5,15 @@ import { useChatContext } from '../../../contexts/chatContext';
 const Message = ({message}) => {
   const { currentUser } = useAuthContext();
   const { chats } = useChatContext();
-
   const ref = useRef();
+
+  const nlBEFormatter = new Intl.DateTimeFormat('nl-BE');
+
   // whenever we have a new msg, div with ref={ref} will be scrolled
   useEffect(()=>{
     ref.current?.scrollIntoView({behavior:'smooth'})
   },[message])
-
-  console.log(message.date.toDate());
+  
   // TODO
   // valid date, not seconds nanoseconds
   return (
@@ -27,7 +28,7 @@ const Message = ({message}) => {
           } 
           alt="" 
         />
-        <span></span>
+        <span style={{fontSize: 10, marginTop: 7}}>{nlBEFormatter.format(message.date.toDate().getTime()).toString()}</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
