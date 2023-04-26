@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 
 export const ChatContext  = createContext();
@@ -27,7 +27,8 @@ export const ChatProvider = ({children}) => {
         user: {}
     }
 
-    const [chats, dispatch] = useReducer(chatReducer, INITIAL_STATE)
+    const [chats, dispatch] = useReducer(chatReducer, INITIAL_STATE);
+    const [userSelected, setUserSelected] = useState(false);
 
     const selectUser = (userData, currentUser) => {
         dispatch({
@@ -40,7 +41,9 @@ export const ChatProvider = ({children}) => {
     return (
         <ChatContext.Provider value={{
             chats,
-            selectUser
+            selectUser,
+            userSelected,
+            setUserSelected
         }}>
             {children}
         </ChatContext.Provider>
