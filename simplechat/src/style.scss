@@ -101,7 +101,6 @@ body{
     justify-content: center;
 
     .container{
-        border: 1px solid white;
         border-radius: 10px;
         width: 65%;
         height: 80%;
@@ -224,16 +223,6 @@ body{
                 justify-content: space-between;
                 padding: 10px;
                 color: lightgray;
-            }
-
-            .chatIcons{
-                display: flex;
-                gap: 10px;
-
-                img{
-                    height: 24px;
-                    cursor: pointer;
-                }
             }
 
             .messages{
