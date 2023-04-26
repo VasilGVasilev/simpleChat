@@ -10,7 +10,4 @@ export const login = (email, password) => signInWithEmailAndPassword(auth, email
 // Logout
 export const logout = () => signOut(auth)
 
-// TODO
-// abstract createUserWithEmailAndPassword for register
-// save currently logged in user in context
-// abstract signInWithEmailAndPassword for login
+
