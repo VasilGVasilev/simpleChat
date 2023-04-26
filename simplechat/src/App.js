@@ -9,15 +9,13 @@ import './style.scss'
 
 function App() {
     return (
-
-                <Routes>
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route element={<PrivateGuard />}>
-                        <Route path='/' element={<Home />} />
-                    </Route>
-                </Routes>
-
+        <Routes>
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route element={<PrivateGuard />}>
+                <Route path='/' element={<Home />} />
+            </Route>
+        </Routes>
     );
 }
 
