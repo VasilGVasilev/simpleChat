@@ -28,7 +28,7 @@ export const ChatProvider = ({children}) => {
     }
 
     const [chats, dispatch] = useReducer(chatReducer, INITIAL_STATE);
-    const [userSelected, setUserSelected] = useState(false);
+    const [userSelected, setUserSelected] = useState(null);
 
     const selectUser = (userData, currentUser) => {
         dispatch({

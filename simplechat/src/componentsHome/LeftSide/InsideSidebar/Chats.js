@@ -29,9 +29,9 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid])
 
-  const handleSelect = (user) => {
-    selectUser(user, currentUser)
-    setUserSelected(true);
+  const handleSelect = (userInfo) => {
+    selectUser(userInfo, currentUser)
+    setUserSelected(userInfo.uid);
   }
 
   // console.log(chats); it logs out objects, while we need an array for the leftsidebar, thus, Object.entries()
@@ -41,9 +41,9 @@ const Chats = () => {
         <div className='userChat' key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
-              {/* logic - if I have not selected other user, but he has written to me, I get red bold prompt, if I selected the chat with them, no need for lastmessage color specification */}
-                <span style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && !userSelected) ? { fontWeight:'bold', color: 'red'} : {} }>{chat[1].userInfo.displayName}</span>
-                <p style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && !userSelected) ? { color: 'red'} : {} }>{chat[1].lastMessage?.text}</p>
+              {/* logic - if I have not selected other user, but they have written to me, I get red bold prompt, if I selected the chat with them, no need for lastmessage color specification */}
+                <span style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && chat[1].lastMessage?.msgOwner !== userSelected ) ? { fontWeight:'bold', color: 'red'} : {} }>{chat[1].userInfo.displayName}</span>
+                <p style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && chat[1].lastMessage?.msgOwner !== userSelected) ? { color: 'red'} : {} }>{chat[1].lastMessage?.text}</p>
             </div>
         </div>
       ))}
