@@ -14,8 +14,6 @@ const Message = ({message}) => {
     ref.current?.scrollIntoView({behavior:'smooth'})
   },[message])
   
-  // TODO
-  // valid date, not seconds nanoseconds
   return (
     <div ref={ref}
       className={`message ${message.senderId === currentUser.uid && 'owner'}`}>
