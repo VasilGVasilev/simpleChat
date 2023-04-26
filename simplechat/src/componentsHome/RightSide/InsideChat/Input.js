@@ -61,17 +61,20 @@ const Input = () => {
     await updateDoc(doc(db, 'userChats', currentUser.uid),{
       // updating nested object done via . notation and here we mix variabale and string via [] notation
       [chats.chatId+'.lastMessage']: {
-        text
+        text,
+        msgOwner: currentUser.uid,
       },
-      [chats.chatId+'.date']: serverTimestamp()
+      [chats.chatId+'.date']: serverTimestamp(),
+      
     })
 
     await updateDoc(doc(db, 'userChats', chats.user.uid),{
       // updating nested object done via . notation and here we mix variabale and string via [] notation
       [chats.chatId+'.lastMessage']: {
-        text
+        text,
+        msgOwner: currentUser.uid,
       },
-      [chats.chatId+'.date']: serverTimestamp()
+      [chats.chatId+'.date']: serverTimestamp(),
     })
 
 

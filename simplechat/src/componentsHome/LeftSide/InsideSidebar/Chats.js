@@ -9,7 +9,7 @@ import { useChatContext } from '../../../contexts/chatContext';
 const Chats = () => {
   const [chats, setChats] = useState([]);
   const { currentUser } = useAuthContext();
-  const { selectUser, setUserSelected } = useChatContext();
+  const { selectUser, setUserSelected, userSelected } = useChatContext();
 
 
   // realtime listening for changes in collection -> You can listen to a document with the onSnapshot() method.
@@ -41,8 +41,9 @@ const Chats = () => {
         <div className='userChat' key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
-                <span>{chat[1].userInfo.displayName}</span>
-                <p>{chat[1].lastMessage?.text}</p>
+              {/* logic - if I have not selected other user, but he has written to me, I get red bold prompt, if I selected the chat with them, no need for lastmessage color specification */}
+                <span style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && !userSelected) ? { fontWeight:'bold', color: 'red'} : {} }>{chat[1].userInfo.displayName}</span>
+                <p style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && !userSelected) ? { color: 'red'} : {} }>{chat[1].lastMessage?.text}</p>
             </div>
         </div>
       ))}
