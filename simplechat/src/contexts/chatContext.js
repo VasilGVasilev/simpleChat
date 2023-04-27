@@ -14,6 +14,11 @@ const chatReducer = (state, action) => {
                             ? action.currentUser.uid + action.payload.uid 
                             : action.payload.uid + action.currentUser.uid
             };
+        case 'DEFAULT':
+            return {
+                chatId: 'null',
+                user: {}
+            }
         default:
             return state;
     }
@@ -38,12 +43,19 @@ export const ChatProvider = ({children}) => {
         })
     }
 
+    const defaultState = () => {
+        dispatch({
+            type: 'DEFAULT',
+        })
+    }
+
     return (
         <ChatContext.Provider value={{
             chats,
             selectUser,
             userSelected,
-            setUserSelected
+            setUserSelected,
+            defaultState
         }}>
             {children}
         </ChatContext.Provider>

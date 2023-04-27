@@ -7,6 +7,7 @@ export const AuthContext  = createContext();
 export const AuthProvider = ({children}) => {
     const [ currentUser, setCurrentUser] = useState({})
 
+
     useEffect(()=>{
         // keep data about currently logged-in user or {} in context for app to use
         const unsub = onAuthStateChanged(auth, (user) => {
@@ -16,6 +17,7 @@ export const AuthProvider = ({children}) => {
             unsub() //against memory leaking
         }
     }, [])
+
 
     return (
         <AuthContext.Provider value={{

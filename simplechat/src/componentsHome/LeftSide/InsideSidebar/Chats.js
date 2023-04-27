@@ -34,6 +34,8 @@ const Chats = () => {
     setUserSelected(userInfo.uid);
   }
 
+
+
   // console.log(chats); it logs out objects, while we need an array for the leftsidebar, thus, Object.entries()
   return (
     <div className='chats'>

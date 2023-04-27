@@ -8,7 +8,6 @@ import { doc, onSnapshot } from 'firebase/firestore';
 const Messages = () => {
   const [ messages, setMessages ] = useState();
   const { chats } = useChatContext();
-
   // again realtime using onSnapshot()
   useEffect(()=>{
     const unsub = onSnapshot(doc(db, 'chats', chats.chatId), (doc) => {
@@ -19,7 +18,7 @@ const Messages = () => {
       unsub()
     }
   }, [chats.chatId])
-
+  
   return (
     <div className='messages'>
       {messages?.map(m=>(
