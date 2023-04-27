@@ -19,14 +19,22 @@ const Register = () => {
     displayName: '',
     email: '',
     password: '',
+    confirmPassword: '',
   })
+  const [errors, setErrors] = useState({}); //client error
 
-  const [err, setErr] = useState(false)
+  const [err, setErr] = useState(false); //server error
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let file = e.target[3].files[0]; //controlled form fails with file upload
+    console.log(e.target);
 
+    let file = e.target[4].files[0]; //controlled form fails with file upload
+
+    if(errors.length > 0){
+        return; //stops onSubmit before passing on data to service
+    }
+    
     try {
       // upload info on authentication BaaS
       let res = await authService.register(values.email, values.password) // res is basically same as auth.currentUser
@@ -40,6 +48,7 @@ const Register = () => {
           setErr(true)
         }, 
         () => {
+
           getDownloadURL(uploadTask.snapshot.ref).then( async (downloadURL) => {
 
             // Add user in BaaS "Authentication"
@@ -61,6 +70,7 @@ const Register = () => {
 
             navigate('/')
           });
+
         }
       );
 
@@ -77,6 +87,49 @@ const Register = () => {
           [e.target.name]: e.target.value //we target by name due to state with multiple values, thus, need for constant //reusable
       }));
   };
+   // Data validation
+
+   const minLength = (e, bound) => {
+      setErrors(state => ({
+          ...state,
+          [e.target.name]: values[e.target.name].length < bound,
+      }));
+  };
+  const minLengthmisMatch = (e, bound) => {
+      setErrors(state => ({
+          ...state,
+          [e.target.name]: values[e.target.name].length < bound,
+      }));
+      if (values.password != values.confirmPassword) {
+          setErrors(state => ({
+              ...state,
+              mismatch: 'mismatch'
+          }))
+      }
+  } 
+
+  const validEmail = (e) => {
+      const regex = /^(.+)@(.+)\.(.+)$/g;
+      const found = values[e.target.name].match(regex);
+
+      if(!found){
+          setErrors(state => ({
+              ...state,
+              [e.target.name]: values[e.target.name]
+          }));
+      }
+  };
+
+  // Error msg disappears on retry
+  const resetError = (e) => {
+      setErrors(state => ({
+          ...state,
+          [e.target.name]: '',
+          mismatch: '',
+      }));
+
+  };
+
 
   return (
     <div className='formContainer'>
@@ -89,22 +142,62 @@ const Register = () => {
                   placeholder='display name'
                   name='displayName'
                   value={values.displayName}
-                  onChange={changeHandler} 
+                  onChange={changeHandler}
+                  onBlur={(e) => minLength(e, 4)}  
+                  onClick={(e) => resetError(e)}   
                 />
+                {errors.displayName &&
+                  <p className="formError">
+                    Password should be at least 4 characters long!
+                  </p>
+                }
                 <input 
                   type="email" 
                   placeholder='email'
                   name='email'
+                  onBlur={(e) => validEmail(e)}  
                   value={values.email}
-                  onChange={changeHandler} 
+                  onChange={changeHandler}
+                  onClick={(e) => resetError(e)} 
                 />
+                {errors.email &&
+                  <p className="formError">
+                    Enter valid email!
+                  </p>
+                }
                 <input 
                   type="password" 
                   placeholder='******'
                   name='password'
                   value={values.password}
-                  onChange={changeHandler} 
+                  onChange={changeHandler}
+                  onBlur={(e) => minLength(e, 6)}  
+                  onClick={(e) => resetError(e)}  
                 />
+                {errors.password &&
+                  <p className="formError">
+                    Password should be at least 6 characters long!
+                  </p>
+                }
+                <input 
+                  type="password" 
+                  placeholder='******'
+                  name='confirmPassword'
+                  value={values.confirmPassword}
+                  onChange={changeHandler}
+                  onBlur={(e) => minLengthmisMatch(e, 6)} 
+                  onClick={(e) => resetError(e)}  
+                />
+                {errors.confirmPassword &&
+                  <p className="formError">
+                    Confirm password should be at least 6 characters long!
+                  </p>
+                }
+                {errors.mismatch &&
+                  <p className="formError">
+                    Repeated password should match password!
+                  </p>
+                }
                 {/* display none for input so that label is decorated */}
                 <label htmlFor="file">
                     <img src={Add} alt="" />
@@ -116,6 +209,7 @@ const Register = () => {
                   type="file" 
                   id='file'
                 />
+
                 <button>Sign up</button>
                 {err && <span>Something went wrong</span>}
             </form>

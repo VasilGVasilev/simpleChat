@@ -44,7 +44,7 @@ const Chats = () => {
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
               {/* logic - if I have not selected other user, but they have written to me, I get red bold prompt, if I selected the chat with them, no need for lastmessage color specification */}
-                <span style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && chat[1].lastMessage?.msgOwner !== userSelected ) ? { fontWeight:'bold', color: 'red'} : {} }>{chat[1].userInfo.displayName}</span>
+                <span>{chat[1].userInfo.displayName}</span>
                 <p style={(chat[1].lastMessage?.msgOwner !== currentUser?.uid && chat[1].lastMessage?.msgOwner !== userSelected) ? { color: 'red'} : {} }>{chat[1].lastMessage?.text}</p>
             </div>
         </div>

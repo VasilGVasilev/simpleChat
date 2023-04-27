@@ -60,7 +60,7 @@ const Login = () => {
                   onChange={changeHandler}
                 />
                 <button>Sign in</button>
-                {err && <span>Something went wrong</span>}
+                {err && <span>Email or password invalid</span>}
             </form>
             <p>You do not have an account? <Link to='/register' style={{ textDecoration: 'none', fontSize: 14 }}>Register</Link></p>
         </div>
