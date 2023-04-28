@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { doc, onSnapshot } from "firebase/firestore";
-import { db } from '../../../firebase';
-import { useAuthContext } from '../../../contexts/authContext';
-import { useChatContext } from '../../../contexts/chatContext';
+import { db } from '../../../../../firebase';
+import { useAuthContext } from '../../../../../contexts/authContext';
+import { useChatContext } from '../../../../../contexts/chatContext';
 
 
 

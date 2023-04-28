@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import * as authService from '../services/authService'
+import * as authService from '../../services/authService'
 
 import { useNavigate, Link } from 'react-router-dom'
 

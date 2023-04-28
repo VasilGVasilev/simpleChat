@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Add from '../img/addImage.png'
-import * as authService from '../services/authService'
-import { db, storage } from '../firebase'
+import Add from '../../img/addImage.png'
+import * as authService from '../../services/authService'
+import { db, storage } from '../../firebase'
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { updateProfile } from 'firebase/auth';
 import { doc, setDoc } from "firebase/firestore";

@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from '../componentsHome/LeftSide/Sidebar'
-import Chat from '../componentsHome/RightSide/Chat'
+import Sidebar from './subComponents/LeftSide/Sidebar'
+import Chat from './subComponents/RightSide/Chat'
 
 const Home = () => {
 

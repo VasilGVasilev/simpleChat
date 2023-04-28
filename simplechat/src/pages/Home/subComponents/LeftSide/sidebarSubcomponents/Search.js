@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { collection, query, where, getDoc, getDocs, setDoc, doc, updateDoc, serverTimestamp } from "firebase/firestore";
-import { db } from '../../../firebase';
-import { useAuthContext } from '../../../contexts/authContext';
+import { db } from '../../../../../firebase';
+import { useAuthContext } from '../../../../../contexts/authContext'
 
 
 // use query for search 

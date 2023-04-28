@@ -107,13 +107,13 @@ body{
         display: flex;
         // overflow: hidden prevents the sidebar and chat to have a sharp corner overflowing the curved corner of container
         overflow: hidden;
-        @include  tablet{
+        @include  mobile{
             width: 90%;
         }
         .sidebar{
             flex: 1;
             background-color: #3e3c61;
-            @include tablet{
+            @include mobile{
                 position: relative;
             }
 
@@ -128,7 +128,7 @@ body{
 
                 .logo{
                     font-weight:bold;
-                    @include  tablet{
+                    @include  mobile{
                         display: none;
                     }
                 }

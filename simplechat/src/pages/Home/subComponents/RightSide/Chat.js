@@ -1,7 +1,7 @@
-import Messages from './InsideChat/Messages'
-import Input from './InsideChat/Input'
+import Messages from './chatSubcomponents/Messages'
+import Input from './chatSubcomponents/Input'
 
-import { useChatContext } from '../../contexts/chatContext';
+import { useChatContext } from '../../../../contexts/chatContext';
 
 
 const Chat = () => {

@@ -1,6 +1,6 @@
-import * as authService from '../../../services/authService'
-import { useAuthContext } from '../../../contexts/authContext'
-import { useChatContext } from '../../../contexts/chatContext'
+import * as authService from '../../../../../services/authService'
+import { useAuthContext } from '../../../../../contexts/authContext'
+import { useChatContext } from '../../../../../contexts/chatContext'
 
 
 

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Img from '../../../img/addImage.png'
-import { useAuthContext } from '../../../contexts/authContext';
-import { useChatContext } from '../../../contexts/chatContext';
+import Img from '../../../../../img/addImage.png'
+import { useAuthContext } from '../../../../../contexts/authContext';
+import { useChatContext } from '../../../../../contexts/chatContext';
 import { Timestamp, arrayUnion, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
-import { db, storage } from '../../../firebase';
+import { db, storage } from '../../../../../firebase';
 import { v4 as uuid } from 'uuid';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 

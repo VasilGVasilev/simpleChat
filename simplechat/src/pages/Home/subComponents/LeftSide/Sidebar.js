@@ -1,7 +1,6 @@
-import React from 'react'
-import NavBar from './InsideSidebar/Navbar'
-import Search from './InsideSidebar/Search'
-import Chats from './InsideSidebar/Chats'
+import NavBar from './sidebarSubcomponents/Navbar'
+import Search from './sidebarSubcomponents/Search'
+import Chats from './sidebarSubcomponents/Chats'
 
 const Sidebar = () => {
   return (
