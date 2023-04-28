@@ -68,7 +68,7 @@ const Register = () => {
             // Add user in collection 'userChats' in BaaS Firestore Database
             await setDoc(doc(db, "userChats", res.user.uid), {}) //empty object due to no convos intially
 
-            navigate('/')
+            navigate('/home')
           });
 
         }

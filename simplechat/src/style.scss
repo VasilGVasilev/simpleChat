@@ -747,3 +747,21 @@ body{
     }
 }
 
+.welcomeContainer{
+    background-color: #a7bcff;
+    font-family: "Arial";
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .welcomeWrapper{
+        background-color: white;
+        padding: 20px 50px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}

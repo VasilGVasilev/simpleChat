@@ -21,7 +21,7 @@ const Login = () => {
     try {
 
       await authService.login(values.email, values.password) // res is basically same as auth.currentUser
-      navigate('/')
+      navigate('/home')
 
     } catch (error) {
 
