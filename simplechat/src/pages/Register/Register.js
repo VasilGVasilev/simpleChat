@@ -27,7 +27,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target);
 
     let file = e.target[4].files[0]; //controlled form fails with file upload
 
@@ -89,11 +88,11 @@ const Register = () => {
   };
    // Data validation
 
-   const minLength = (e, bound) => {
-      setErrors(state => ({
-          ...state,
-          [e.target.name]: values[e.target.name].length < bound,
-      }));
+  const minLength = (e, bound) => {
+    setErrors(state => ({
+        ...state,
+        [e.target.name]: values[e.target.name].length < bound,
+    }));
   };
   const minLengthmisMatch = (e, bound) => {
       setErrors(state => ({
@@ -148,7 +147,7 @@ const Register = () => {
                 />
                 {errors.displayName &&
                   <p className="formError">
-                    Password should be at least 4 characters long!
+                    Name should be at least 4 characters long!
                   </p>
                 }
                 <input 

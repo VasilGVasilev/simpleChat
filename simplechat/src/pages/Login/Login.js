@@ -12,12 +12,18 @@ const Login = () => {
     password: '',
   })
 
-  const [err, setErr] = useState(false)
+  const [errors, setErrors] = useState({}); //client error
+
+  const [err, setErr] = useState(false); //server error
 
   const handleSubmit = async (e) => {
 
     e.preventDefault();
 
+    if(errors.length > 0){
+      return; //stops onSubmit before passing on data to service
+    }
+  
     try {
 
       await authService.login(values.email, values.password) // res is basically same as auth.currentUser
@@ -39,6 +45,35 @@ const Login = () => {
       }));
   };
 
+  const validEmail = (e) => {
+      const regex = /^(.+)@(.+)\.(.+)$/g;
+      const found = values[e.target.name].match(regex);
+
+      if(!found){
+          setErrors(state => ({
+              ...state,
+              [e.target.name]: values[e.target.name]
+          }));
+      }
+  };
+
+  const minLength = (e, bound) => {
+    setErrors(state => ({
+        ...state,
+        [e.target.name]: values[e.target.name].length < bound,
+    }));
+  };
+
+  // Error msg disappears on retry
+  const resetError = (e) => {
+      setErrors(state => ({
+          ...state,
+          [e.target.name]: '',
+      }));
+
+  };
+
+
   return (
     <div className='formContainer'>
         <div className='formWrapper'>
@@ -51,6 +86,8 @@ const Login = () => {
                   name='email'
                   value={values.email}
                   onChange={changeHandler}
+                  onBlur={(e) => validEmail(e)} 
+                  onClick={(e) => resetError(e)}
                 />
                 <input 
                   type="password"  
@@ -58,6 +95,8 @@ const Login = () => {
                   name='password'
                   value={values.password}
                   onChange={changeHandler}
+                  onBlur={(e) => minLength(e, 4)}  
+                  onClick={(e) => resetError(e)}
                 />
                 <button>Sign in</button>
                 {err && <span>Email or password invalid</span>}
