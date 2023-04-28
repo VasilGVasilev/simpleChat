@@ -6,7 +6,7 @@ import { useChatContext } from '../../../../../contexts/chatContext';
 
 
 
-const Chats = () => {
+const Chats = ({showChat}) => {
   const [chats, setChats] = useState([]);
   const { currentUser } = useAuthContext();
   const { selectUser, setUserSelected, userSelected } = useChatContext();
@@ -29,9 +29,11 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid])
 
+
   const handleSelect = (userInfo) => {
-    selectUser(userInfo, currentUser)
-    setUserSelected(userInfo.uid);
+    selectUser(userInfo, currentUser) //for chat with user to be rendered
+    setUserSelected(userInfo.uid); //for unread msgs from other user and for default null user on logout
+    showChat()
   }
 
 

@@ -48,6 +48,7 @@ export const ChatProvider = ({children}) => {
             type: 'DEFAULT',
         })
     }
+    
 
     return (
         <ChatContext.Provider value={{

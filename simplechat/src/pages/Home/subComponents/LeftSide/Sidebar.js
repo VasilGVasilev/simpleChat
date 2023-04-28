@@ -2,12 +2,12 @@ import NavBar from './sidebarSubcomponents/Navbar'
 import Search from './sidebarSubcomponents/Search'
 import Chats from './sidebarSubcomponents/Chats'
 
-const Sidebar = () => {
+const Sidebar = ({showChat, sidebarStyle}) => {
   return (
-    <div className='sidebar'>
+    <div className={sidebarStyle}>
       <NavBar></NavBar>
       <Search></Search>
-      <Chats></Chats>
+      <Chats showChat={showChat}></Chats>
     </div>
   )
 }
