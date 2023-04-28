@@ -4,7 +4,7 @@ import Chats from './sidebarSubcomponents/Chats'
 
 const Sidebar = ({showChat, sidebarStyle}) => {
   return (
-    <div className={sidebarStyle}>
+    <div className={window.innerWidth > 450 ? 'sidebar' : sidebarStyle}>
       <NavBar></NavBar>
       <Search></Search>
       <Chats showChat={showChat}></Chats>

@@ -1,9 +1,13 @@
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 import Sidebar from './subComponents/LeftSide/Sidebar'
 import Chat from './subComponents/RightSide/Chat'
 
 const sidebarReducer = (state, action) => {
     switch(action.type){
+        // laptop
+        case 'sidebar':
+            return 'sidebar';
+        // mobile
         case 'hideSidebar':
             return 'sidebarHidden';
         case 'showSidebar':
@@ -15,6 +19,10 @@ const sidebarReducer = (state, action) => {
 
 const chatReducer = (state, action) => {
     switch(action.type){
+        // laptop
+        case 'chat':
+            return 'chat';
+        // mobile
         case 'showChat':
             return 'chatShow';
         case 'hideChat':
@@ -27,8 +35,7 @@ const chatReducer = (state, action) => {
 const Home = () => {
     const [sidebarStyle, dispatchSidebar] = useReducer(sidebarReducer, 'sidebarShow');
     const [chatStyle, dispatchChat] = useReducer(chatReducer, 'chatHidden');
-
-
+    
     const showChatWithUser = () => {
         if(window.innerWidth < 450){
             dispatchSidebar({
@@ -48,8 +55,9 @@ const Home = () => {
             dispatchChat({
                 type: 'hideChat',
             })
-        }
+        } 
     }
+
     return (
         <div className='home'>
             <div className='container'>

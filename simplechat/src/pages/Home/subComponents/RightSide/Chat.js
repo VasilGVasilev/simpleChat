@@ -9,7 +9,7 @@ const Chat = ({showSidebar, chatStyle}) => {
   const defaultGreeting = 'Select user to chat with...';
   const customGreeting = `Chat buddy: ${chats.user?.displayName}`;
   return (
-    <div className={chatStyle}>
+    <div className={window.innerWidth > 450 ? 'chat' : chatStyle}>
       <div className="chatInfo">
         <span>{!!chats.user.displayName ? customGreeting : defaultGreeting}</span>
         {/* todo disable hide button in laptop version */}
