@@ -1,7 +1,7 @@
 # [VGV Chat](https://vgvchat.000webhostapp.com/)
 
 ## Description
-A simple chat web application that has authentication of users. Once logged-in users can search for all other users in DB and add them by selecting their name. This loads a chat between current user and searched user. This chat is updated in real time.
+A simple chat web application that has authentication of users. Once logged-in, users can search for all other users in DB and add them by selecting their name. This loads a chat between current user and searched user. This chat is updated in real time.
 
 ## What's in the stack
 
