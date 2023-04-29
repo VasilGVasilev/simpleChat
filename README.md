@@ -14,7 +14,7 @@
 - use of media queries only half solves the problem, since mobile layout adds functionality, onClick events that trigger the display of either Sidebar or Chat, which as components in desktop verison are both visible - the solution was using useReducer and different scss classes for Sidebar and Chat, first based on mobile or desktop version, second, based on whether client is currenlty viewing Sidebar or Chat
 
 
-`Other issues include:` 
+`Other issues:` 
 - flickering of main page conten '/' on initial load before PrivateGuard redirects to /login; 
 solution: '/' page is not loaded with any information, we have separete '/home' for main logic
 - Stop auto-zoom when filling out input in mobile Safari;
