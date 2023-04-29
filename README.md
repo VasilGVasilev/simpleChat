@@ -1,6 +1,4 @@
-# VGV Chat
-
-## [VGV Chat](https://vgvchat.000webhostapp.com/)
+# [VGV Chat](https://vgvchat.000webhostapp.com/)
 
 ## What's in the stack
 
