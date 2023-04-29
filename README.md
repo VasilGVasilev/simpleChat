@@ -1,7 +1,7 @@
 # [VGV Chat](https://vgvchat.000webhostapp.com/)
 
 ## Description
-A simple chat web application that has authentication of users. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. This loads a chat between current user and searched user. This chat is updated in real time.
+A simple chat web application that has authentication of users. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. The chat between current user and searched user is updated in real time. There is a feature that sets last message of 'chat buddy' to color red if they are not selected, thus, the effect of unread messages.
 
 ## What's in the stack
 
