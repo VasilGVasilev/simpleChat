@@ -18,7 +18,7 @@
 - flickering of main page conten '/' on initial load before PrivateGuard redirects to /login; 
 solution: '/' page is not loaded with any information, we have separete '/home' for main logic
 - Stop auto-zoom when filling out input in mobile Safari;
-no uniform solution
+no solution: setting scale to accomodate problem will change mobile layout due to no universal mobile web layout standard
 
 
 
