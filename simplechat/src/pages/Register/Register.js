@@ -33,7 +33,15 @@ const Register = () => {
     if(errors.length > 0){
         return; //stops onSubmit before passing on data to service
     }
-    
+    if(values.password !== values.confirmPassword){
+      if (values.password != values.confirmPassword) {
+          setErrors(state => ({
+              ...state,
+              mismatch: 'mismatch'
+          }))
+      }
+      return; //stops onSubmit before passing on data to service
+    }
     try {
       // upload info on authentication BaaS
       let res = await authService.register(values.email, values.password) // res is basically same as auth.currentUser
@@ -94,17 +102,12 @@ const Register = () => {
         [e.target.name]: values[e.target.name].length < bound,
     }));
   };
-  const minLengthmisMatch = (e, bound) => {
+  const minLengthMisMatch = (e, bound) => {
       setErrors(state => ({
           ...state,
           [e.target.name]: values[e.target.name].length < bound,
       }));
-      if (values.password != values.confirmPassword) {
-          setErrors(state => ({
-              ...state,
-              mismatch: 'mismatch'
-          }))
-      }
+
   } 
 
   const validEmail = (e) => {
@@ -184,7 +187,7 @@ const Register = () => {
                   name='confirmPassword'
                   value={values.confirmPassword}
                   onChange={changeHandler}
-                  onBlur={(e) => minLengthmisMatch(e, 6)} 
+                  onBlur={(e) => minLengthMisMatch(e, 6)} 
                   onClick={(e) => resetError(e)}  
                 />
                 {errors.confirmPassword &&
