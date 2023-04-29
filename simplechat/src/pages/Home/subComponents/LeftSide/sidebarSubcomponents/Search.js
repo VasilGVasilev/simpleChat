@@ -46,7 +46,7 @@ const Search = () => {
                 // create a chat in chats collection
                 await setDoc(doc(db, "chats", combinedId), {messages: []});
 
-                // create user chats
+                // create reference to update user chats
                 const currentUserChatsRef = doc(db, 'userChats', currentUser.uid);
                 const searchedUserChatsRef = doc(db, 'userChats', user.uid);
 
