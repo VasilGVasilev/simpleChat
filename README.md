@@ -40,6 +40,8 @@ Profile image:
 - Update the user collection element to add photoURL, the photoURL is added via uploading img to Storage - uploadBytesResumable() and subsequently dowloading that image to the client - getDownloadURL()
 
     
-### Updating (main CRUD operation)
+### Updating DB (main CRUD operation)
+
+Registration of user creates a collection in users DB. Selecting a user to chat with, creates two sets of collections in userChats DB, one for each participant, the id of which are corresponding to the ids of the collections in chats DB.
 
 ![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/DBlogic.png)
