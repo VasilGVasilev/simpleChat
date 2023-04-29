@@ -36,4 +36,4 @@ Profile image:
     
 ### Updating (main CRUD operation)
 
-![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/DBlogic.png?raw=true)
+![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/DBlogic.png)
