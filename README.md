@@ -19,12 +19,13 @@
 ### Auth
 
 Registration and Login: 
-    Utilize the firebase getAuth() related functions
+
+- Utilize the firebase getAuth() related functions
 
 Profile image:
-    Update the user collection element to add photoURL, the photoURL is added via uploading img to Storage - uploadBytesResumable() and subsequently dowloading that image to the client - getDownloadURL()
+- Update the user collection element to add photoURL, the photoURL is added via uploading img to Storage - uploadBytesResumable() and subsequently dowloading that image to the client - getDownloadURL()
 
     
 ### Updating (main CRUD operation)
 
-![alt text](https://cdn-icons-png.flaticon.com/512/14/14558.png)
+![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/DBlogic.png?raw=true)
