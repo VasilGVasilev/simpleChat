@@ -14,12 +14,11 @@ const Navbar = () => {
   }
   return (
     <div className='navbar'>
-      <span className='logo'>My profile</span>
       <div className="user">
         <img src={currentUser.photoURL} alt="" />
         <span>{currentUser.displayName}</span>
-        <button onClick={logout}>logout</button>
       </div>
+      <button onClick={logout}>logout</button>
     </div>
   )
 }
