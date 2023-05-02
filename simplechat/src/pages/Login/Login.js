@@ -88,6 +88,7 @@ const Login = () => {
                   onChange={changeHandler}
                   onBlur={(e) => validEmail(e)} 
                   onClick={(e) => resetError(e)}
+                  data-cy="email"
                 />
                 <input 
                   type="password"  
@@ -97,8 +98,9 @@ const Login = () => {
                   onChange={changeHandler}
                   onBlur={(e) => minLength(e, 4)}  
                   onClick={(e) => resetError(e)}
+                  data-cy="password"
                 />
-                <button>Sign in</button>
+                <button data-cy="signIn" >Sign in</button>
                 {err && <span>Email or password invalid</span>}
             </form>
             <p>You do not have an account? <Link to='/register' style={{ textDecoration: 'none', fontSize: 14 }}>Register</Link></p>

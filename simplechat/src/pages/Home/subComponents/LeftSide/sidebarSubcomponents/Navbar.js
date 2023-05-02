@@ -18,7 +18,7 @@ const Navbar = () => {
         <img src={currentUser.photoURL} alt="" />
         <span>{currentUser.displayName}</span>
       </div>
-      <button onClick={logout}>logout</button>
+      <button data-cy="logoutBtn" onClick={logout}>logout</button>
     </div>
   )
 }

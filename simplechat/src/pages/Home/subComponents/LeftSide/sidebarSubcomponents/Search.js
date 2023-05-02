@@ -91,6 +91,7 @@ const Search = () => {
                     value={username} 
                     onKeyDown={handleKey} 
                     onChange={e => setUsername(e.target.value)}
+                    data-cy='searchBtn'
                 />
             </div>
             {err && <span>User not found</span>}
@@ -98,7 +99,7 @@ const Search = () => {
                 <div className='userChat' onClick={handleSelect}>
                     <img src={user.photoURL} alt="" />
                     <div className="userChatInfo">
-                        <span>{user.displayName}</span>
+                        <span data-cy='searchedDisplayName' >{user.displayName}</span>
                     </div>
                 </div>
             }
