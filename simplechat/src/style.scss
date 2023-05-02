@@ -257,34 +257,30 @@ body{
                 justify-content: space-between;
                 color: #ddddf7;
         
-                .logo{
-                    font-weight:bold;
-                    display: none;
-                }
-        
                 .user{
-                    display: flex;
-                    gap: 10px;
-        
+
+
                     img{
                         background-color: black;
-                        height: 24px;
-                        width: 24px;
+                        height: 25px;
+                        width: 25px;
                         border-radius: 50%; //makes image circular
                         object-fit: cover;
                     }
-        
-                    button{
-                        background-color: #5d5b8d;
-                        color:#ddddf7;
-                        font-size: 10px;
-                        border: none;
-                        cursor: pointer;
-                        position: absolute;
-                        right: 15px;
-                        height: 24px;
-                        width: 54px;
+                    span{
+                        position: relative;
+                        color: white;
+                        bottom: 7px;
+                        left: 7px;
                     }
+
+                }
+                button[data-cy=logoutBtn]{
+                    background-color: #5d5b8d;
+                    color:#ddddf7;
+                    font-size: 12px;
+                    border: none;
+                    cursor: pointer;
                 }
             }
             .search{
@@ -360,28 +356,29 @@ body{
                 }
         
                 .user{
-                    display: flex;
-                    gap: 10px;
-        
+
+
                     img{
                         background-color: black;
-                        height: 24px;
-                        width: 24px;
+                        height: 25px;
+                        width: 25px;
                         border-radius: 50%; //makes image circular
                         object-fit: cover;
                     }
-        
-                    button{
-                        background-color: #5d5b8d;
-                        color:#ddddf7;
-                        font-size: 10px;
-                        border: none;
-                        cursor: pointer;
-                        position: absolute;
-                        right: 15px;
-                        height: 24px;
-                        width: 54px;
+                    span{
+                        position: relative;
+                        color: white;
+                        bottom: 7px;
+                        left: 7px;
                     }
+
+                }
+                button[data-cy=logoutBtn]{
+                    background-color: #5d5b8d;
+                    color:#ddddf7;
+                    font-size: 12px;
+                    border: none;
+                    cursor: pointer;
                 }
             }
             .search{
