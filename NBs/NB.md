@@ -180,3 +180,10 @@ onClick={handleClick}
     return(
       onClick={()=>handleClick()}
     )
+
+
+
+
+ON DEVOPS 2h video
+
+DevOps seems to be about proper code review automatization, allocating hardware resources via /Linux -> VM/containers/ communication and deployment
