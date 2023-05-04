@@ -46,7 +46,7 @@ Registration of user creates a collection in users DB. Selecting a user to chat 
 
 ![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/DBlogic.png)
 
-## Main learning benefits:
+## Learning achievements:
 - First navigation through the docs of my first BaaS - Firbase
 - First use of a superset of CSS - SASS
 - Deep dive into state with useReducer() rendering UI based on viewport
