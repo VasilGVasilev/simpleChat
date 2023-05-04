@@ -45,3 +45,9 @@ Profile image:
 Registration of user creates a collection in users DB. Selecting a user to chat with, creates two sets of collections in userChats DB, one for each participant, the id of which are corresponding to the ids of the collections in chats DB.
 
 ![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/DBlogic.png)
+
+## Main learning benefits:
+- Navigating through the docs of my first BaaS - Firbase
+- Using a superset of CSS - SASS
+- Deep dive into state with useReducer() rendering UI based on viewport
+- Finally learning useEffect() cleanup function relevance
