@@ -187,3 +187,7 @@ onClick={handleClick}
 ON DEVOPS 2h video
 
 DevOps seems to be about proper code review automatization, allocating hardware resources via /Linux -> VM/containers/ communication and deployment
+
+Containers contain apps/libs/bins within a container and makes those think that there are no other porcesses in utilizing the host OS and hardware.
+
+Virtual Machines contain apps/libs/bins but also a nested OS. Thus, it is deeper level focusing on allocation of hardware resources.
