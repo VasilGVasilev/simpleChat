@@ -50,5 +50,5 @@ Registration of user creates a collection in users DB. Selecting a user to chat 
 - First navigation through the docs of my first BaaS - Firbase
 - First use of a superset of CSS - SASS
 - Deep dive into state with useReducer() rendering UI based on viewport
-- Finally, learning useEffect() cleanup function relevance
-- Finally, learning the signficance of block scoping in JS
+- Learning useEffect() cleanup function relevance
+- Llearning the signficance of block scoping in JS
