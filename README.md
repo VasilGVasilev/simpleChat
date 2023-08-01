@@ -2,8 +2,8 @@
 
 
 ## Description
-### Front-End React Project
-A SSG website developed via Firebase, SASS, React with authentication and real-time update of messages. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. A feature sets the last message of a user to color red if they are not selected - the effect of unread messages.
+### Front-End React Project (Back-End is outsourced)
+A website with authentication and real-time update of messages developed via SASS, React, Firebase and Cypress. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. A feature sets the last message of a user to color red if they are not selected - the effect of unread messages.
 
 ## What's in the stack
 
@@ -12,6 +12,14 @@ A SSG website developed via Firebase, SASS, React with authentication and real-t
 - Styling with [SASS](https://sass-lang.com/)
 - Server by [Firebase](https://firebase.google.com/)
 
+## Learning achievements:
+- Basic understanding of implementing a BaaS
+- First use of a superset of CSS - SASS
+- Deep dive into state with **useReducer()** rendering UI based on viewport
+- Learning useEffect() cleanup function relevance
+- First project with unit tests.
+
+- 
 ## Development issues:
 
 ### Different layout base on deskto/mobile device
@@ -48,9 +56,3 @@ Registration of user creates a collection in users DB. Selecting a user to chat 
 
 ![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/DBlogic.png)
 
-## Learning achievements:
-- First navigation through the docs of my first BaaS - Firbase
-- First use of a superset of CSS - SASS
-- Deep dive into state with useReducer() rendering UI based on viewport
-- Learning useEffect() cleanup function relevance
-- Learning the signficance of block scoping in JS
