@@ -1,12 +1,14 @@
-# [VGV Chat](https://vgvchat.000webhostapp.com/) 
+# [VGV Chat](https://vgvchat.tech/login) 
 
 
 ## Description
 ### Front-End React Project
-A simple chat web application that has authentication of users. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. The chat between current user and searched user is updated in real time. There is a feature that sets the last message of 'chat buddy' to color red if they are not selected, thus, the effect of unread messages.
+A SSG website developed via Firebase, SASS, React with authentication and real-time update of messages. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. A feature sets the last message of a user to color red if they are not selected - the effect of unread messages.
 
 ## What's in the stack
 
+- React Toolchain [Create React App](https://create-react-app.dev/)
+- Shared Server by [Hostinger](https://www.hostinger.com/)
 - Styling with [SASS](https://sass-lang.com/)
 - Server by [Firebase](https://firebase.google.com/)
 
@@ -51,4 +53,4 @@ Registration of user creates a collection in users DB. Selecting a user to chat 
 - First use of a superset of CSS - SASS
 - Deep dive into state with useReducer() rendering UI based on viewport
 - Learning useEffect() cleanup function relevance
-- Llearning the signficance of block scoping in JS
+- Learning the signficance of block scoping in JS
