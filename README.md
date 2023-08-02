@@ -3,7 +3,7 @@ A website with authentication and real-time update of messages developed via SAS
 
 ## [Go to Website](https://vgvchat.tech/)
 
-[![alt text](https://github.com/VasilGVasilev/nextJS/blob/ixoraInter/ixora/welcome-img-ixora.png)](https://vgvchat.tech/)
+[![alt text](https://github.com/VasilGVasilev/nextJS/blob/simplechat/NBs/vgv-chat.png)](https://vgvchat.tech/)
 
 ## What's in the stack
 
