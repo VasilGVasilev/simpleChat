@@ -1,9 +1,9 @@
-# [VGV Chat](https://vgvchat.tech/login) 
-
-
-## Description
-### Front-End React Project (Back-End is outsourced)
+# Front-End React Project (Back-End is outsourced)
 A website with authentication and real-time update of messages developed via SASS, React, Firebase and Cypress. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. A feature sets the last message of a user to color red if they are not selected - the effect of unread messages.
+
+## [Go to Website](https://vgvchat.tech/login)
+
+[![alt text](https://github.com/VasilGVasilev/nextJS/blob/ixoraInter/ixora/welcome-img-ixora.png)](https://vgvchat.tech/login)
 
 ## What's in the stack
 
