@@ -19,7 +19,9 @@ A website with authentication and real-time update of messages developed via SAS
 - Learning useEffect() cleanup function relevance
 - First project with unit tests.
 
-- 
+## Lighthouse score:
+![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/lighthouse.png)
+
 ## Development issues:
 
 ### Different layout base on deskto/mobile device
