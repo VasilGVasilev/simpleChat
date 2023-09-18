@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react'
+import { useReducer } from 'react'
 import Sidebar from './subComponents/LeftSide/Sidebar'
 import Chat from './subComponents/RightSide/Chat'
 
