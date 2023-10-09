@@ -1,9 +1,15 @@
-# Front-End React Project (Back-End is outsourced)
+# A fullstack Chat App with Create React App: React, SASS, Firebase
+
 A website with authentication and real-time update of messages developed via SASS, React, Firebase and Cypress. Once logged-in, users can search for all other users in DB and choose to chat with them by selecting their name. A feature sets the last message of a user to color red if they are not selected - the effect of unread messages.
 
 ## [Go to Website](https://vgvchat.tech/)
 
 [![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/vgv-chat.png)](https://vgvchat.tech/)
+
+---
+
+[![alt text](https://github.com/VasilGVasilev/tilia/blob/main/NB/second-img.png)](https://ixorabg.com/)
+
 
 ## What's in the stack
 
@@ -12,32 +18,21 @@ A website with authentication and real-time update of messages developed via SAS
 - Styling with [SASS](https://sass-lang.com/)
 - Server by [Firebase](https://firebase.google.com/)
 
+Features:
+
+- Full responsiveness
+- Credential authentication
+- Image upload using Firebase
+- Client form validation and handling using my own custom form
+- Search algorithm by chat buddy name
+
 ## Learning achievements:
 - Basic understanding of implementing a BaaS
 - First use of a superset of CSS - SASS
 - Deep dive into state with **useReducer()** rendering UI based on viewport
 - Learning useEffect() cleanup function relevance
-- First project with unit tests.
-
-## Lighthouse score:
-![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/lighthouse.png)
-
-## Development issues:
-
-### Different layout base on deskto/mobile device
-
-
-`Main issue`
-- use of media queries only half solves the problem, since mobile layout adds functionality, onClick events that trigger the display of either Sidebar or Chat, which as components in desktop verison are both visible;  
-the solution: using useReducer and different scss classes for Sidebar and Chat, first based on mobile or desktop version, second, based on whether client is currenlty viewing Sidebar or Chat
-
-
-`Other issues:` 
-- flickering of main page conten '/' on initial load before PrivateGuard redirects to /login;  
-solution: '/' page is not loaded with any information, we have separete '/home' for main logic
-- Stop auto-zoom when filling out input in mobile Safari;  
-no solution: setting scale to accomodate problem will change mobile layout due to no universal mobile web layout standard
-
+- First project with unit tests (Cypress)
+- Learned the useEffect hook cleanup functionality [see](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/useEffectCleanup.png)
 
 
 ## How does the app work:
@@ -57,4 +52,26 @@ Profile image:
 Registration of user creates a collection in users DB. Selecting a user to chat with, creates two sets of collections in userChats DB, one for each participant, the id of which are corresponding to the ids of the collections in chats DB.
 
 ![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/DBlogic.png)
+
+
+## Development issues:
+
+### Different layout base on deskto/mobile device
+
+
+`Main issue`
+- use of media queries only half solves the problem, since mobile layout adds functionality, onClick events that trigger the display of either Sidebar or Chat, which as components in desktop verison are both visible;  
+the solution: using useReducer and different scss classes for Sidebar and Chat, first based on mobile or desktop version, second, based on whether client is currenlty viewing Sidebar or Chat
+
+
+`Other issues:` 
+- flickering of main page conten '/' on initial load before PrivateGuard redirects to /login;  
+solution: '/' page is not loaded with any information, we have separete '/home' for main logic
+- Stop auto-zoom when filling out input in mobile Safari;  
+no solution: setting scale to accomodate problem will change mobile layout due to no universal mobile web layout standard
+
+
+## Lighthouse score:
+![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/lighthouse.png)
+
 
