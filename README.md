@@ -8,7 +8,7 @@ A website with authentication and real-time update of messages developed via SAS
 
 ---
 
-[![alt text](https://github.com/VasilGVasilev/tilia/blob/main/NB/second-img.png)](https://ixorabg.com/)
+[![alt text](https://github.com/VasilGVasilev/simpleChat/blob/main/NBs/hello-azis.png)](https://vgvchat.tech/)
 
 
 ## What's in the stack
