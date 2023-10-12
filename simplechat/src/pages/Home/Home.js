@@ -70,4 +70,9 @@ const Home = () => {
 
 export default Home
 
+// using useReducer because basic useState does not give conditionality:
+// We look at the device's resolution and determine which CSS to have, the value being stored in
+// the useReducer value, while the handleFunction utilizes the the useReducer dispatch function
+
+
 // as a CSS feature, show chat/ back to chats is a functionality that should be in Home component and passed on as a prop, not clutter Context API

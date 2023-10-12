@@ -27,6 +27,13 @@ Features:
 - Search algorithm by chat buddy name
 
 ## Learning achievements:
+
+__**I have made my very own custom solution for mobile responsiveness, namely, show/hide sidebar depending on being on desktop or mobile device resolution.**__
+
+[see here](https://github.com/VasilGVasilev/simpleChat/blob/main/simplechat/src/pages/Home/Home.js
+)
+
+Also:
 - Basic understanding of implementing a BaaS
 - First use of a superset of CSS - SASS
 - Deep dive into state with **useReducer()** rendering UI based on viewport
