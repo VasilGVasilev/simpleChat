@@ -28,7 +28,8 @@ Features:
 
 ## Learning achievements:
 
-**__I have made my very own custom solution for mobile responsiveness, namely, show/hide sidebar depending on being on desktop or mobile device resolution.__**
+
+**I have made my very own custom solution for mobile responsiveness, namely, show/hide sidebar depending on being on desktop or mobile device resolution.**
 
 [see here](https://github.com/VasilGVasilev/simpleChat/blob/main/simplechat/src/pages/Home/Home.js
 )
